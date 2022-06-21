@@ -15,14 +15,38 @@ class SortedList {
       return this.items[pos];
     }
   }
-
-  max() {}
-
-  min() {}
-
-  sum() {}
-
-  avg() {}
+  max() {
+    if (this.items.length === 0) {
+      throw new Error("EmptySortedList");
+    } else {
+      return this.items.slice(-1)[0];
+    }
+  }
+  min() {
+    if (this.items.length === 0) {
+      throw new Error("EmptySortedList");
+    } else {
+      return this.items[0];
+    }
+  }
+  sum() {
+    let suma = 0;
+    for (let i = 0; i < this.items.length; i++) {
+      suma += this.items[i];
+    }
+    return suma;
+  }
+  avg() {
+    if (this.items.length === 0) {
+      throw new Error("EmptySortedList");
+    } else {
+      let suma = 0;
+      for (let i = 0; i < this.items.length; i++) {
+        suma += this.items[i];
+      }
+      return suma / this.items.length;
+    }
+  }
 }
 
 module.exports = SortedList;
